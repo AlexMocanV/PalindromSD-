@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+ifstream fin("palindromsd.in");
+ofstream fout("palindromsd.out");
+
+long long int n,i,nr=0,x[1001],ogl=0,copie,uc,j;
+
+int main()
+{
+    
+    while(fin>>n)
+    {
+        copie=n;
+        ogl=0;
+        while(copie>0)
+        {
+            uc=copie%10;
+            ogl=ogl*10+uc;
+            copie=copie/10;
+        }
+        if(ogl==n)
+        {
+            nr++;
+            x[nr]=n;
+        }
+    }
+    //fout<<nr;
+    if(nr==0)
+    {
+        fout<<-1;
+    }
+    else
+    {
+    for(i=1,j=nr;i<=nr,j>=1;i++,j--)
+    {
+        if(i<j)
+        fout<<x[i]<<" "<<x[j]<<" ";
+        if(i==j)
+        {
+            fout<<x[j];
+        }
+    }
+    }
+   
+    
+    return 0;
+}
